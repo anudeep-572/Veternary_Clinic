@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:vetclinicdb # In-memory DB name
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true # Enables access to http://localhost:8080/h2-console
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update # Creates schema on startup
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
