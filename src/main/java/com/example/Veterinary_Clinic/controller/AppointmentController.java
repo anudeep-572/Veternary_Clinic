@@ -1,6 +1,7 @@
 package com.example.Veterinary_Clinic.controller;
 
 import com.example.Veterinary_Clinic.entity.Appointment;
+import com.example.Veterinary_Clinic.entity.Treatment;
 import com.example.Veterinary_Clinic.service.AppointmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,31 @@ public class AppointmentController {
         service.delete(id);
     }
 
+    @GetMapping("/pet/{petId}")
+    public List<Appointment> getAppointmentsByPet(@PathVariable Long petId) {
+        return service.getByPet(petId);
+    }
+
+    @GetMapping("/cancelled")
+    public List<Appointment> cancelledAppointments() {
+        return service.getCancelledAppointments();
+    }
+
+    @GetMapping("/count/vet/{vetId}")
+    public Long countAppointments(@PathVariable Long vetId) {
+        return service.countByVet(vetId);
+    }
+
+    @GetMapping("/upcoming")
+    public List<Appointment> upcomingAppointments() {
+        return service.getUpcoming();
+    }
+
+    @GetMapping("/vet/{vetId}")
+    public List<Appointment> getAppointmentsByVet(@PathVariable Long vetId) {
+        return service.getByVet(vetId);
+    }
+
     @PutMapping("/{id}/treatments")
     public Appointment updateTreatments(
             @PathVariable Long id,
@@ -43,4 +69,10 @@ public class AppointmentController {
 
         return service.updateTreatments(id, treatmentIds);
     }
+
+    @GetMapping("/{id}/treatments")
+    public Set<Treatment> getTreatmentsByAppointment(@PathVariable Long id) {
+        return service.getTreatmentsByAppointment(id);
+    }
+
 }

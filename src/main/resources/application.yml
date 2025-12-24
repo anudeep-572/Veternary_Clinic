@@ -2,7 +2,7 @@ spring:
   application:
     name: vet-clinic-system
   profiles:
-    active: dev # Default profile (change to 'prod' to switch, or use CLI args)
+    active: prod
 
 server:
   port: 8080

@@ -5,7 +5,7 @@ spring:
     password: Reddy@572
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect # Updated to MySQL8Dialect for better compatibility
+    database-platform: org.hibernate.dialect.MySQLDialect # Updated to MySQL8Dialect for better compatibility
     hibernate:
       ddl-auto: update # In strict prod environments, 'validate' is often safer than 'update'
     show-sql: true

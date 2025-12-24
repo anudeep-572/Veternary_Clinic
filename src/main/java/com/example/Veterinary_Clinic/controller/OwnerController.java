@@ -29,4 +29,10 @@ public class OwnerController {
     public Owner getById(@PathVariable Long id) {
         return service.getbyId(id);
     }
+
+    @GetMapping("/multiple-pets")
+    public List<Owner> ownersWithMultiplePets() {
+        return service.getOwnersWithMultiplePets();
+    }
+
 }

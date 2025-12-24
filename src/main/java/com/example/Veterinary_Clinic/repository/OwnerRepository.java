@@ -9,4 +9,6 @@ public interface OwnerRepository extends JpaRepository<Owner, Long> {
 
     @Query("select o from Owner o where size(o.pets) > 1")
     List<Owner> findOwnersWithMultiplePets();
+
+
 }

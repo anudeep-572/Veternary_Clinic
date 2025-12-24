@@ -27,4 +27,9 @@ public class OwnerService {
     public Owner getbyId(Long id) {
         return repository.findById(id).orElse(null);
     }
+
+    public List<Owner> getOwnersWithMultiplePets() {
+        return repository.findOwnersWithMultiplePets();
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.Veterinary_Clinic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -24,14 +25,15 @@ public class Appointment {
     private AppointmentStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "pet_id")
+    @JoinColumn(name = "pet_id", nullable = false)
     @JsonIgnoreProperties("appointments")
     private Pet pet;
 
     @ManyToOne
-    @JoinColumn(name = "vet_id")
+    @JoinColumn(name = "vet_id", nullable = false)
     @JsonIgnoreProperties("appointments")
     private Vet vet;
+
 
     @ManyToMany
     @JoinTable(
@@ -43,4 +45,6 @@ public class Appointment {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude // <--- FIX: Stop the HashCode loop here
     private Set<Treatment> treatments = new HashSet<>();
+
+
 }

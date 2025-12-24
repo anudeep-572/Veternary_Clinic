@@ -25,4 +25,18 @@ public class PetService {
     public List<Pet> PetAll() {
         return repository.findAll();
     }
+
+    @Transactional
+    public Pet getFullRecord(Long petId) {
+        return repository.findFullPetRecord(petId)
+                .orElseThrow(() -> new RuntimeException("Pet not found with id: " + petId));
+    }
+
+
+
+    public List<Pet> getPetsByTreatment(Long treatmentId) {
+        return repository.findPetsByTreatment(treatmentId);
+    }
+
+
 }
