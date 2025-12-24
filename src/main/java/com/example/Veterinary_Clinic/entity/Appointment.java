@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.EqualsAndHashCode; // <--- Import this
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
@@ -43,7 +43,7 @@ public class Appointment {
     )
     @JsonIgnoreProperties("appointments")
     @ToString.Exclude
-    @EqualsAndHashCode.Exclude // <--- FIX: Stop the HashCode loop here
+    @EqualsAndHashCode.Exclude
     private Set<Treatment> treatments = new HashSet<>();
 
 
